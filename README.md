@@ -1,45 +1,206 @@
-<<<<<<< HEAD
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
 
-## Getting Started
+# **OHLCV Charting Tool**
 
-First, run the development server:
+A web application built with **Next.js** and **Chakra UI** that fetches and visualizes OHLCV (Open, High, Low, Close, Volume) candlestick chart data. The tool supports adding custom trading pairs, searching for a pair address with a given token address, date filtering, and adding basic charting options like a moving average combo.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## **Features**
+
+- **Advanced Candlestick Data for ANY ERC20 or Solana token pair**: Moralis OHLCV API for historical pricing data served as OHLCV
+- **Candlestick Charting**: Visualize OHLCV data using `lightweight-charts`.
+- **Custom Trading Pairs**: Moralis Token Pairs API to fetch any custom token pairs.
+- **Token Metadata Search**:  Moralis ERC20 Metadata API to view metadata for custom token pairs.
+- **Responsive UI**: Built with Chakra UI for a modern, mobile-friendly interface.
+
+---
+
+## **Requirements**
+
+1. **Moralis API Key**:
+   - Sign up or log in at [Moralis](https://developers.moralis.io/).
+   - Generate an API key from the dashboard.
+
+2. **Environment Variables**:
+   - Later you will need to create a `.env.local` file in the root directory of your project.
+   - Add the following environment variables:
+     ```env
+     NEXT_PUBLIC_MORALIS_API_KEY=your-moralis-api-key
+     ```
+   - Replace `your-moralis-api-key` with your actual API key.
+
+3. **Node.js and npm**:
+   - Ensure Node.js (v18+) and npm are installed.
+
+4. **Version Compatibility**:
+   - The project uses these versions in the `package.json` file, you need need to use the same to avoid compatibility issues:
+     - `next`: `^13.3.0`
+     - `react`: `^18.2.0`
+     - `react-dom`: `^18.2.0`
+     - `@chakra-ui/react`: `^2.8.2`
+     - `lightweight-charts`: `^4.1.2`
+
+---
+
+## **Getting Started**
+
+### **Installation**
+
+1. Clone the repository:
+   ```bash
+   create your folder
+   cd into it
+   git clone https://github.com/ChrisMoralis/ohlcv.git
+   cd ohlcv 
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Set up the environment variables:
+   - Create a `.env.local` file in the project root.
+   - Add your Moralis API key as shown as above:
+     ```env
+     NEXT_PUBLIC_MORALIS_API_KEY=your-moralis-api-key
+     ```
+4. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+5. Open your browser and navigate to:
+   ```
+   http://localhost:3000 
+   ```
+   - assuming that is the port which is available
+
+---
+
+## **Folder Structure**
+
+```
+ohlcv/
+├── src/
+│   └── components/
+│       ├── TradingViewChart.js
+│       ├── ChartJSONModal.js
+│       ├── TokenSearchModal.js
+├── pages/
+│   ├── index.js           # Main application page
+│   └── api/
+│       └── token/         # Fetching token pair data
+│       ├── candlesticks   # Fetching OHLCV
+├── public/                # Static assets
+├── package.json           # Project dependencies
+└── README.md              # Project documentation
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## **Usage**
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+### **1. Select a Token Pair & Chain**
+- Choose from the predefined token pairs or add a custom pair by selecting "Custom Pair."
+- Choose chain, currently only Eth and Polygon are coded, but we support EVM mainnet chains and Solana (https://docs.moralis.com/supported-chains)
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+### **2. Set the Date Range**
+- Use the date picker to specify a start and end date for the candlestick data.
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### **3. Fetch Data**
+- Click the **GO!** button to retrieve and display OHLCV data in the candlestick chart.
 
-## Learn More
+### **4. Toggle Moving Averages**
+- Enable or disable SMA-8 and SMA-21 overlays on the chart.
 
-To learn more about Next.js, take a look at the following resources:
+### **5. View Token Metadata**
+- Use the **Search Token** feature to fetch metadata for a specific token.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## **API Endpoints**
 
-## Deploy on Vercel
+### **Candlestick Data**
+Fetch OHLCV candlestick data:
+```http
+GET /api/moralis-api/ohlc/candlesticksv2
+```
+- **Query Parameters**:
+  - `pairAddress`: Address of the token pair.
+  - `chainId`: Blockchain ID (e.g., Ethereum: `0x1`).
+  - `fromTimestamp`: Start date (UNIX timestamp).
+  - `toTimestamp`: End date (UNIX timestamp).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
-=======
-# ohlcv
-Moralis OHLCV and Trading View lightweight
->>>>>>> d9d2019abbe45138719628d225be0d444a74f899
+## **Customization**
+
+### **Adding Predefined Pairs**
+Modify the `initialPairs` array in `pages/index.js` to add or update predefined trading pairs:
+```javascript
+const initialPairs = [
+  {
+    value: '0xa43fe16908251ee70ef74718545e4fe6c5ccec9f',
+    label: 'PEPE/WETH',
+    precision: 7,
+  },
+];
+```
+
+### **Chart Appearance**
+Update the chart options in `TradingViewChart.js` to customize colors, grid lines, and styles.
+
+---
+
+## **Development**
+
+### Running in Development Mode
+Start the development server:
+```bash
+npm run dev
+```
+
+### Building for Production
+Create a production build:
+```bash
+npm run build
+```
+
+Start the production server:
+```bash
+npm run start
+```
+
+---
+
+## **Contributing**
+
+1. Fork the repository.
+2. Create a new branch for your feature:
+   ```bash
+   git checkout -b feature-name
+   ```
+3. Commit your changes:
+   ```bash
+   git commit -m "Add your message here"
+   ```
+4. Push to your branch:
+   ```bash
+   git push origin feature-name
+   ```
+5. Open a pull request.
+
+---
+
+## **License**
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+## **Contact**
+
+For questions or support, contact:
+- **GitHub**: [ChrisMoralis](https://github.com/ChrisMoralis)
+- **Email**: chris@moralis.io
