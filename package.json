@@ -1,20 +1,29 @@
 {
-  "name": "41-ohlcv-repo",
-  "version": "0.1.0",
+  "name": "next-auth",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint --ext .js,.ts ."
   },
   "dependencies": {
-    "react": "19.0.0-rc-66855b96-20241106",
-    "react-dom": "19.0.0-rc-66855b96-20241106",
-    "next": "15.0.3"
+    "@chakra-ui/react": "^2.8.2",
+    "@emotion/react": "^11.11.3",
+    "@emotion/styled": "^11.11.0",
+    "axios": "^1.7.8",
+    "framer-motion": "^10.18.0",
+    "lightweight-charts": "^4.1.2",
+    "next": "^15.0.3",
+    "react": "^18.2.0",
+    "react-datepicker": "^7.4.0",
+    "react-dom": "^18.2.0",
+    "react-json-pretty": "^2.2.0",
+    "react-json-view-lite": "^1.2.1"
   },
   "devDependencies": {
-    "eslint": "^8",
-    "eslint-config-next": "15.0.3"
+    "eslint": "^8.32.0",
+    "eslint-config-next": "^13.2.4"
   }
 }
