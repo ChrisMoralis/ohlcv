@@ -3,6 +3,8 @@
 
 A web application built with **Next.js** and **Chakra UI** that fetches and visualizes OHLCV (Open, High, Low, Close, Volume) candlestick chart data. The tool supports adding custom trading pairs, searching for a pair address with a given token address, date filtering, and adding basic charting options like a moving average combo.
 
+Here is a link to a similar app: [Candlesticks Demo](https://success-tools.vercel.app/demo/candlesticksv2)
+- **API Key required** to use the demo app, this is different to the repo below
 ---
 
 ## **Features**
@@ -18,8 +20,9 @@ A web application built with **Next.js** and **Chakra UI** that fetches and visu
 ## **Requirements**
 
 1. **Moralis API Key**:
-   - Sign up or log in at [Moralis](https://developers.moralis.io/).
-   - Generate an API key from the dashboard.
+   - Sign up or log in at [Moralis](https://developers.moralis.com/).
+   - Or if you have an account, visit [API Keys](https://admin.moralis.com/api-keys) in your admin dashboard
+   - Generate or fetch your API key from the dashboard.
 
 2. **Environment Variables**:
    - Later you will need to create a `.env.local` file in the root directory of your project.
